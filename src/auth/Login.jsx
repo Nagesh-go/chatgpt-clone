@@ -1,19 +1,25 @@
 import React, {useState} from 'react'
 import "./Login.css"
-import { Link } from 'react-router-dom'
-const Login = () => {
+import { Link , useNavigate} from 'react-router-dom'
+
+
+const Login = ({ setIsAuthenticated }) => {
+    const navigate = useNavigate();
+
+  
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
   
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      console.log("Logging in with", email, password);
-    };
+    const handleLogin = (e) => {
+        e.preventDefault();
+        setIsAuthenticated(true); // Simulate successful login
+        navigate("/"); // Redirect to home
+      };
   
     return (
       <div className="login-container">
         
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleLogin}>
         <h2>ChatGPT Login</h2>
           <input
             type="email"

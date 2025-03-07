@@ -1,14 +1,27 @@
 import React,{useState} from 'react'
 import "./Signup.css"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
 const Signup = () => {
+    const showError = () => {
+        toast.error("Both passwords are not same!");
+      };
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatpassword, setrepeatPassword] = useState("");
-    
+  const navigate = useNavigate();
       const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Logging in with", email, password);
+        if(password === repeatpassword){
+            navigate("/login");
+        }
+        else{
+            showError();
+        }
       };
     
       return (
@@ -39,6 +52,7 @@ const Signup = () => {
             />
             <button type="submit">Create</button>
             <p>Already have account?<Link to="/login">Sign Up</Link></p>
+            <ToastContainer/>
           </form>
         </div>
       );
