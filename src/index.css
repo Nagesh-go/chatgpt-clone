@@ -1,0 +1,16 @@
+*{
+  margin: 0px 0px;
+  padding: 0px 0px;
+}
+
+body{
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  box-sizing: border-box;
+  z-index: 0;
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
