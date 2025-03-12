@@ -18,6 +18,7 @@ function App() {
               <Home /></ProtectedRoute>} />
         <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/home" element={<Home />} />
       </Routes>
     </>
   )
